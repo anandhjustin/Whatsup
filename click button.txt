@@ -1,0 +1,49 @@
+package orgin;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Point;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Button {
+
+	public static void main(String[] args) {
+		
+
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\lenovo\\eclipse-workspace\\Selenium\\driver\\chromedriver_win32\\chromedriver.exe");
+		WebDriver driver = new ChromeDriver();
+		driver.get("http://testleaf.herokuapp.com/pages/Button.html");
+		driver.manage().window().maximize();
+	//find the passion
+	WebElement buttonsize = driver.findElement(By.id("position"));
+	Point xypoint = buttonsize.getLocation();
+	int xvalue = xypoint.getX();
+	int yvalue = xypoint.getY();
+	System.out.println("X value is:"+ xvalue+"Y value is:"+ yvalue);
+	
+	//find the color button
+	WebElement colourbutton = driver.findElement(By.id("color"));
+	
+	String colour = colourbutton.getCssValue("background-color");
+    System.out.println("button colour is:"+colour);
+	WebElement size = driver.findElement(By.id("size"));
+	int height = size.getSize().getHeight();
+	int width = size.getSize().getWidth();
+	System.out.println("height is :"+ height + "width is :"+ width );
+	
+	WebElement gotohomepage = driver.findElement(By.id("size"));
+	
+	gotohomepage.click();
+	
+	driver.quit();
+	
+	
+	
+	
+	
+	}
+
+}
+
+
